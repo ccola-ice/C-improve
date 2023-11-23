@@ -44,8 +44,6 @@ void test02()
 
 void test03()
 {
-//github test.c
-//git add
 }
 
 int main()
