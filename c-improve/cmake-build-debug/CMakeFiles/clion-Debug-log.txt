@@ -1,1 +1,11 @@
-CMakeLists.txt not found in D:\Program\C-Learn\c-improve Select CMakeLists.txt
+"D:\Program\JetBrains\CLion 2023.1.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=D:/Embedded/MinGW/bin/mingw32-make.exe -G "CodeBlocks - MinGW Makefiles" -S D:\Program\C-Learn\c-improve -B D:\Program\C-Learn\c-improve\cmake-build-debug
+    -- [01__zhanqu] will be compiled to '.runtime/01__zhanqu.exe'
+    -- [01_duiqu1] will be compiled to '.runtime/01_duiqu1.exe'
+    -- [01_duiqu2] will be compiled to '.runtime/01_duiqu2.exe'
+    -- [01_quanjujingtaiqu] will be compiled to '.runtime/01_quanjujingtaiqu.exe'
+    -- [test] will be compiled to '.runtime/test.exe'
+    -- [CMakeCCompilerId] will be compiled to '.runtime/CMakeCCompilerId.exe'
+    -- [CMakeCXXCompilerId] will be compiled to '.runtime/CMakeCXXCompilerId.exe'
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Program/C-Learn/c-improve/cmake-build-debug
