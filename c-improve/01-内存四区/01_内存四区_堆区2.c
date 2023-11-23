@@ -32,21 +32,23 @@ void test02()
         printf("%d\n",p[i]);
     }
     printf("realloc前p指针的值：%p\n",p);
-    p = realloc(p,sizeof(int)*20000);
-    printf("realloc后p指针的值：%p\n",p);
+    p = realloc(p,sizeof(int)*20000);        //重新分配20000个int大小的堆空间。
+    printf("realloc后p指针的值：%p\n",p);               //若原空间后面够大，足够新增的空间使用，则p指针不变，否则会重新找一块很大的空间来分配堆，此时p指针是改变的。
     printf("---------------------------------\n");
     for(int i = 0;i < 30;i++)
     {
-        printf("%d\n",p[i]);
+        printf("%d\n",p[i]);   //扩展出来的新空间是没有被初始化的（B站张涛版本），自己实验时发现是有初始化的。
     }
-}
-
-
-void test03()
-{
+    if(p != NULL)
+    {
+        free(p);           //手动释放
+        p = NULL;
+    }
 }
 
 int main()
 {
+    test01();
+    printf("============================================================\n");
     test02();
 }
