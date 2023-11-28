@@ -41,16 +41,16 @@ void test02()
 //分配堆区内存：
 void allocteSpace( char  ** x)
 {
-    char  * temp =  malloc(sizeof(char)* 64);
+    char  * temp =  malloc(sizeof(char)* 64);  //temp = &
     memset(temp, 0, 64);
     strcpy(temp, "hello world!!!");
-    *x = temp;
+    * x = temp;                                     //x指向的内存空间赋值为temp，即p = temp;
 }
-// * p = a ; 与 ** p = &a ;操作是同类相似的。
+
 void test03()
 {
     char * p = NULL;
-    allocteSpace(&p);
+    allocteSpace(&p);                           //char ** x = &p; x是二级指针，x指向p这个char *类型的指针
     printf("%s\n", p);
     if (p!=NULL)
     {
