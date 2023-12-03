@@ -17,7 +17,6 @@ void test01()
     strcpy(q, "2222"); //err
 }
 
-
 int* func()
 {
     int a = 10;
