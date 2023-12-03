@@ -88,19 +88,49 @@ void printArray2(int ** p2,int num)
     }
 }
 
+//只能把形参指针置空
+void freeArray1(int * p3)
+{
+    if(p3 != NULL)
+    {
+        free(p3);
+        p3 = NULL;
+    }
+}
+//能把实参指针置空
+void freeArray2(int ** p3)
+{
+    if(*p3 != NULL)
+    {
+        free(*p3);
+        *p3 = NULL;
+    }
+}
+
 void test03()
 {
     int * p = NULL;
 
+    //创建空间：
     allocateSpace(&p);
 
+    //遍历数组：
     printArray2(&p,10);
 
-    if(p != NULL)
-    {
-        free(p);
-        p = NULL;
-    }
+    //释放数组：
+/*  //方法1释放数组，释放后p是野指针
+    freeArray1(p);
+    if(p == NULL)
+        printf("\np现在是空指针。\n");
+    else
+        printf("\np现在是野指针。\n");
+*/
+    //方法2释放数组，释放后p是空指针
+    freeArray2(&p);
+    if(p == NULL)
+        printf("\np现在是空指针。\n");
+    else
+        printf("\np现在是野指针。\n");
 }
 
 int main()
