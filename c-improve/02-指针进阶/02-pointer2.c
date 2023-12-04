@@ -2,7 +2,6 @@
 // Created by Cola on 2023/11/27.
 //
 #include <stdio.h>
-#include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 
