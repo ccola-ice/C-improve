@@ -44,6 +44,7 @@ void freeSpace(struct Person ** pp,int len)
         return;
     for(int i=0;i<len;i++)
     {
+        printf("%s被释放了\n",pp[i]->name);
         //先释放person->name的堆空间
         free(pp[i]->name);
     }
