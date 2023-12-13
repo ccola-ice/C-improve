@@ -32,10 +32,29 @@ struct Person ** allocateSpace()
 
 void printPerson(struct Person ** pp, int len)
 {
-    for(int i=0;i<3;i++)
+    for(int i=0;i<len;i++)
     {
-        printf("姓名：%s  年龄：%d\n",pp[i]->name,pp[i]->age);
+        printf("姓名：%s  年龄：%d\n", pp[i]->name, pp[i]->age);
     }
+}
+
+void freeSpace(struct Person ** pp,int len)
+{
+    if(pp == NULL |len < 0)
+        return;
+    for(int i=0;i<len;i++)
+    {
+        //先释放person->name的堆空间
+        free(pp[i]->name);
+    }
+    for(int i=0;i<len;i++)
+    {
+        //再释放person的堆空间
+        free(pp[i]);
+    }
+    //最后释放ppPerson
+    free(pp);
+    pp = NULL;
 }
 
 void test01()
@@ -47,6 +66,9 @@ void test01()
 
     //打印输出：
     printPerson(ppPerson,3);
+
+    //释放内存：与分配内存方向相反
+    freeSpace(ppPerson,3);
 }
 
 int main()
