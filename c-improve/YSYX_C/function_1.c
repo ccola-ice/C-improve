@@ -125,32 +125,9 @@ void numof9()
     printf("1-100中出现9的次数为：%d\n",result);
 }
 
-/*
 
- */
-int factorial_1(int n)
-{
-    int result = 1;
-    int i = 1;
-    do {
-        result = result * i;
-        i = i + 1;
-    } while (i <= n);
-
-    return result;
-}
-
-int factorial_2(int n)
-{
-    int result = 1;
-    int i;
-    for(i = 1; i <= n; ++i)
-        result = result * i;
-    return result;
-}
-
-//求1-100之间的素数
-int is_prime(int n)
+//求1-100之间的素数---带有break和continue
+int is_prime_1(int n)
 {
     int i;
     for (i = 2; i < n; i++)
@@ -162,14 +139,67 @@ int is_prime(int n)
         return 0;
 }
 
+//求1-100之间的素数---不带break和continue
+int is_prime_2(int n)
+{
+    int i;
+    for(i = 2; i < n; i++)
+    {
+        if(n % i == 0)
+            return 0;
+    }
+    //printf("%d是一个素数\n",n);
+    return 1;
+}
+
+int jiecheng(int n)
+{
+    if(n==0)
+        return 1;
+    else if (n==1)
+        return 1;
+    else
+        return jiecheng(n-1)*n;
+}
+
+//打印菱形钻石函数
+void diamond(int rows, char x)
+{
+    int i,j,mid;
+    mid = rows/2 + 1;
+    if(rows%2!=0)
+    {
+        for(i=1;i<=mid;i++)
+        {
+            for(j=1;j<=mid-i;j++)
+                printf("\t");
+            for(j=1;j<=2*i-1;j++ )
+                printf("%c\t",x);
+            printf("\n");
+        }
+        for(i=mid+1;i<=rows;i++)
+        {
+            for(j=1;j<=i-mid;j++)
+                printf("\t");
+            for(j=1;j <= rows-2*(i-mid);j++)
+                printf("%c\t",x);
+            printf("\n");
+        }
+    }
+}
 
 int main()
 {
+    int i;
+    int j;
+    int m;
+    int n;
+
     print_logarithm(10.0);
 
     foo(-2,3);
 
-    if(is_leap_year(1005))
+    if(is_leap_year(2024))
         printf("yes！\n");
     else
         printf("no! \n");
@@ -183,12 +213,36 @@ int main()
 
     numof9();
 
-    for (int i = 1; i <= 100; i++)
+    //采用带有break和continue的循环
+    for (i = 1; i <= 100; i++)
     {
-        if (!is_prime(i))
+        if (!is_prime_1(i))
             continue;
         printf("%d\n", i);
     }
+
+    //采用不带有break和continue的循环
+    for (j = 1; j <= 100; j++)
+    {
+        if(is_prime_2(j) == 1)
+            printf("%d\n",j);
+    }
+
+    //嵌套循环打印9*9乘法表
+    for (m=1; m<=9; m++) {
+        for (n=1; n<=9; n++)
+            printf("%d\t", m*n);
+        printf("\n");
+    }
+
+    //嵌套循环打印9*9乘法表-改进版
+    for (m=1; m<=9; m++) {
+        for (n=1; n<=m; n++)
+            printf("%d\t", m*n);
+        printf("\n");
+    }
+
+    diamond(5,'*');
 
     return 0;
 }
