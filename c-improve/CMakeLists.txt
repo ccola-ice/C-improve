@@ -20,6 +20,24 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/.path)
 file(GLOB_RECURSE files *.c **/*.c *.cpp **/*.cpp)
 foreach (file ${files})
     string(REGEX REPLACE ".+/(.+)\\..*" "\\1" exe ${file})
-    add_executable(${exe} ${file})
+    add_executable(${exe} ${file}
+            02-指针进阶/02-pointer1.c
+            02-指针进阶/02-pointer2.c
+            02-指针进阶/02-pointer3.c
+            02-指针进阶/02-pointer4.c
+            02-指针进阶/02-pointer5.c
+            02-指针进阶/02-pointer6.c
+            03-位运算/01_hexprintf.c
+            03-位运算/02_yuan_fan_bu_ma.c
+            03-位运算/02_yuan_fan_bu_ma.c
+            04-Array_Advanced/01.c
+            05-结构体进阶/01-basic.c
+            05-结构体进阶/02-assignment.c
+            05-结构体进阶/03-exercise1.c
+            YSYX_C/function_1.c
+            04-Array_Advanced/01_one_dimensional_array_name.c
+            04-Array_Advanced/02_definition_method_of_array_pointer.c
+            04-Array_Advanced/03_2d_array_name.c
+    )
     message(\ \ \ \ --\ \[${exe}\]\ will\ be\ compiled\ to\ \'.runtime/${exe}.exe\')
 endforeach ()
