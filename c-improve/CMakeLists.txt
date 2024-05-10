@@ -1,43 +1,48 @@
-cmake_minimum_required(VERSION 3.26)
-project(CWorks C CXX)
-
-# 使用此CMakeList时，若要新建C语言文件，请按照以下步骤：
-# 1. 右键根目录——新建——C/C++源文件
-# 2. 在弹出的对话框中，输入文件名(英文小写及下划线)，后缀为 ".c"，不要勾选“添加到目标”，点击确定。
-# 3. 点击 左上角横线——文件——重新加载CMake项目 。
-
-# 按照书本要求设定C语言和C++版本
+cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY executable_files)
 
-# 设定构建运行路径，避免污染根目录
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/.archive)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/.library)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/.runtime)
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/.path)
+project(01_01_stackspace C)
+project(01_02_heapsapce1 C)
+project(01_02_heapsapce2 C)
+project(01_03_globalspace C)
+project(01_04_FunctionCallModel C)
+project(02_01_pointer1 C)
+project(02_01_pointer2 C)
+project(02_01_pointer3 C)
+project(02_01_pointer4 C)
+project(02_01_pointer5 C)
+project(02_01_pointer6 C)
+project(03_01_hexprintf C)
+project(03_02_yuan_fan_bu_ma C)
+project(04_01_one_dimensional_array_name C)
+project(04_02_definition_method_of_array_pointer C)
+project(04_03_2d_array_name C)
+project(05_01_basic C)
+project(05_02_assignment C)
+project(05_03_exercise1 C)
 
-# 遍历项目根目录下所有的 .c 文件，自动添加
-file(GLOB_RECURSE files *.c **/*.c *.cpp **/*.cpp)
-foreach (file ${files})
-    string(REGEX REPLACE ".+/(.+)\\..*" "\\1" exe ${file})
-    add_executable(${exe} ${file}
-            02-指针进阶/02-pointer1.c
-            02-指针进阶/02-pointer2.c
-            02-指针进阶/02-pointer3.c
-            02-指针进阶/02-pointer4.c
-            02-指针进阶/02-pointer5.c
-            02-指针进阶/02-pointer6.c
-            03-位运算/01_hexprintf.c
-            03-位运算/02_yuan_fan_bu_ma.c
-            03-位运算/02_yuan_fan_bu_ma.c
-            04-Array_Advanced/01.c
-            05-结构体进阶/01-basic.c
-            05-结构体进阶/02-assignment.c
-            05-结构体进阶/03-exercise1.c
-            YSYX_C/function_1.c
-            04-Array_Advanced/01_one_dimensional_array_name.c
-            04-Array_Advanced/02_definition_method_of_array_pointer.c
-            04-Array_Advanced/03_2d_array_name.c
-    )
-    message(\ \ \ \ --\ \[${exe}\]\ will\ be\ compiled\ to\ \'.runtime/${exe}.exe\')
-endforeach ()
+
+add_executable(01_01_stackspace         01_memory_four_areas/01_stackspace.c)
+add_executable(01_02_heapsapce1         01_memory_four_areas/02_heapsapce1.c)
+add_executable(01_02_heapsapce2         01_memory_four_areas/02_heapsapce2.c)
+add_executable(01_03_globalspace        01_memory_four_areas/03_globalspace.c)
+add_executable(01_04_FunctionCallModel  01_memory_four_areas/04_FunctionCallModel.c)
+
+add_executable(02_01_pointer1           02_pointer_advanced/01_pointer1.c)
+add_executable(02_02_pointer2           02_pointer_advanced/02_pointer2.c)
+add_executable(02_03_pointer3           02_pointer_advanced/03_pointer3.c)
+add_executable(02_04_pointer4           02_pointer_advanced/04_pointer4.c)
+add_executable(02_05_pointer5           02_pointer_advanced/05_pointer5.c)
+add_executable(02_06_pointer6           02_pointer_advanced/06_pointer6.c)
+
+add_executable(03_01_hexprintf          03_bit_operation/01_hexprintf.c)
+add_executable(03_02_yuan_fan_bu_ma     03_bit_operation/02_yuan_fan_bu_ma.c)
+
+add_executable(04_01_one_dimensional_array_name             04_array_advanced/01_one_dimensional_array_name.c)
+add_executable(04_02_definition_method_of_array_pointer     04_array_advanced/02_definition_method_of_array_pointer.c)
+add_executable(04_03_2d_array_name                          04_array_advanced/03_2d_array_name.c)
+
+add_executable(05_01_basic              05_structure_advanced/01_basic.c)
+add_executable(05_02_assignment         05_structure_advanced/02_assignment.c)
+add_executable(05_03_exercise1          05_structure_advanced/03_exercise1.c)
