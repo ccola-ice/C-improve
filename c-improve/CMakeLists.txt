@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY executable_files)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../executable_files)
 
 project(01_01_stackspace C)
 project(01_02_heapsapce1 C)
