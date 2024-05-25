@@ -10,7 +10,8 @@ struct Person{
     char name[64];
     int age;
     //1、结构体中可以放函数吗？：
-    */
+*/
+
 /*
      * void func()
      * {
